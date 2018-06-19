@@ -10,6 +10,8 @@ public class RespawnScript : MonoBehaviour {
 	public Text VidaUI;
 	int count = 0;
 	int life = 100;
+	int maxInimigos = 10; // Máximo de inimigos na fase
+	int countInimigos = 0;
 	// Use this for initialization
 	void Start () {
 		tempo = Time.time;
@@ -19,9 +21,10 @@ public class RespawnScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Time.time - tempo > 2) {
+		if (Time.time - tempo > 2 && countInimigos <= maxInimigos) {
 			Respawn();
-			tempo = Time.time;	
+			tempo = Time.time;
+			this.countInimigos += 1;
 		}
 
 	}
@@ -35,7 +38,7 @@ public class RespawnScript : MonoBehaviour {
 
 	void Respawn(){
 		GameObject go = Instantiate (inimigoPrefab) as GameObject;
-		go.transform.position = new Vector3 (Random.Range(-5.0f,5.0f),0.5f,Random.Range(-5.0f,5.0f));
+		go.transform.position = new Vector3 (Random.Range(25.0f,30.0f),0.5f,Random.Range(25.0f,30.0f));
 	}
 
 	public void incrementarPlacar() {
