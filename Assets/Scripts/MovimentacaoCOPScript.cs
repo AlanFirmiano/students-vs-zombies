@@ -20,6 +20,7 @@ public class MovimentacaoCOPScript : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		//print(this.gameObject.transform.position);
 		//MOVIMENTACAO
 		if(Input.GetKey(KeyCode.UpArrow)) {
 			this.gameObject.transform.Translate (Vector3.forward * 0.1f);

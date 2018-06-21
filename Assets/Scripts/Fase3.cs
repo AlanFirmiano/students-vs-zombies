@@ -17,6 +17,7 @@ public class Fase3 : MonoBehaviour {
 	void OnCollisionEnter(Collision col){
 		if (col.gameObject.tag.Equals ("cop")) {
 			Application.LoadLevel (1);
+			//GameObject.FindGameObjectWithTag ("GameController").GetComponent<RespawnScript> ().passarFase3 ();
 		}
 	}
 }
