@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class RespawnScript : MonoBehaviour {
 	float tempo;
 	public GameObject inimigoPrefab;
+	public Animator animator; 
 	public Text PlacarUI;
 	public Text VidaUI;
 	int count = 0;
 	int life = 100;
 	int maxInimigos = 10; // Máximo de inimigos na fase
-	int countInimigos = 0;
+	int countInimigos = 1;
 	// Use this for initialization
 	void Start () {
 		tempo = Time.time;

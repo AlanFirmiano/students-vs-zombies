@@ -9,8 +9,9 @@ public class MovimentacaoZombie : MonoBehaviour {
 	public Animator animator; 
 	void Start(){
 		tempo = 0;
-		life = 100;
+		//life = 100;
 		animator.SetBool ("morrendo",false);
+		animator.SetBool ("atacando",false);
 		speed = 1.5f;
 	}
 	// Update is called once per frame
@@ -27,12 +28,24 @@ public class MovimentacaoZombie : MonoBehaviour {
 			}
 		}
 	}
-
+		
 	public void tiraVida(float perde){
 		this.life -= perde;
 		if (this.life <= 0) {
 			tempo = Time.time;
 			animator.SetBool ("morrendo", true);
+		}
+	}
+
+	void OnCollisionEnter(Collision col){
+		if (col.gameObject.tag.Equals ("cop")) {
+			animator.SetBool ("atacando", true);
+		}
+	}
+
+	void OnCollisionExit(Collision col){
+		if (col.gameObject.tag.Equals ("cop")) {
+			animator.SetBool ("atacando", false);
 		}
 	}
 }

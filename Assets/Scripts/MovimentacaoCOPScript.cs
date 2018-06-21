@@ -74,9 +74,13 @@ public class MovimentacaoCOPScript : MonoBehaviour {
 			this.gameObject.transform.position = new Vector3 (0,0.5f,0);
 			this.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
 		}
+	}
+	void OnCollisionEnter(Collision col){
 		if (col.gameObject.tag.Equals ("inimigo")) {
+			print ("k");
 			GameObject.FindGameObjectWithTag ("GameController").GetComponent<RespawnScript> ().mostrarVida (10);
 
 		}
+
 	}
 }
